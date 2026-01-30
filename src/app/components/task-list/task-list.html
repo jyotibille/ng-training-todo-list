@@ -1,0 +1,137 @@
+<div class="task-container slds-card">
+
+  <!-- ================= HEADER ================= -->
+  <div class="slds-p-around_medium slds-border_bottom task-header">
+    <div class="slds-grid slds-grid_align-spread">
+
+      <!-- LEFT -->
+      <div class="slds-grid slds-grid_vertical-align-center">
+        <div class="task-icon">☰</div>
+
+        <div class="slds-m-left_small">
+          <div class="slds-text-heading_medium task-title">Tasks</div>
+          <div class="slds-text-body_small task-subtitle">All Tasks</div>
+          <div class="record-count">
+            {{ filteredRecords }} Records 
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="header-right">
+        <div class="slds-grid slds-grid_align-end">
+          <button class="slds-button slds-button_neutral yellow-btn"
+                  (click)="addTask()">New Task</button>
+
+          <button class="slds-button slds-button_neutral yellow-btn"
+                  (click)="refreshTasks()">Refresh</button>
+        </div>
+
+        <!-- Search -->
+        <div class="slds-form-element slds-m-top_x-small search-box">
+          <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+            <input type="text"
+                   class="slds-input"
+                   placeholder="Search"
+                   [(ngModel)]="searchTerm"
+                   (input)="searchTasks()" />
+            <span class="slds-input__icon slds-input__icon_right">🔍</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= TABLE ================= -->
+  <div class="table-wrapper no-padding">
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout">
+
+      <thead>
+        <tr>
+          <!-- Select All -->
+          <th style="width:40px">
+            <input type="checkbox"
+                   [(ngModel)]="selectAll"
+                   (change)="toggleSelectAll()" />
+          </th>
+
+          <th>Assigned To</th>
+          <th>Status</th>
+          <th>Due Date</th>
+          <th>Priority</th>
+          <th>Comments</th>
+          <th style="width:50px"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>
+            <input type="checkbox"
+                   [(ngModel)]="task.selected"
+                   (change)="updateSelectAllState()" />
+          </td>
+
+          <td class="link-text">{{ task.assignedTo }}</td>
+          <td>{{ task.status }}</td>
+          <td>{{ task.dueDate | date:'dd/MM/yyyy' }}</td>
+          <td>{{ task.priority }}</td>
+         <td class="truncate" title="{{ task.comments }}">
+  {{ task.comments || '—' }}
+</td>
+
+
+          <!-- Actions -->
+          <td class="slds-text-align_right">
+            <div class="action-menu">
+              <button class="action-btn">▾</button>
+              <div class="action-dropdown">
+                <div (click)="editTask(task.id)">Edit</div>
+                <div (click)="openDeleteModal(task)">Delete</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="footer-bar">
+    <div class="page-size-wrapper">
+      <input type="number"
+             class="page-size-spinner"
+             min="1"
+             [(ngModel)]="pageSize"
+             (change)="onPageSizeChange()" />
+    </div>
+
+    <div class="pagination-box">
+      <button (click)="goToPage(1)">⏮ First</button>
+      <button (click)="previousPage()">‹ Previous</button>
+      <span class="page-number">{{ currentPage }}</span>
+      <button (click)="nextPage()">› Next</button>
+      <button (click)="goToPage(totalPages)">⏭ Last</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= DELETE MODAL ================= -->
+<div class="modal-backdrop" *ngIf="showDeleteModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      Delete
+    </div>
+
+    <div class="modal-body">
+      Do you want to delete task <b>{{ taskToDelete?.assignedTo }}</b>?
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-no" (click)="closeDeleteModal()">No</button>
+      <button class="btn-yes" (click)="confirmDelete()">Yes</button>
+    </div>
+  </div>
+</div>

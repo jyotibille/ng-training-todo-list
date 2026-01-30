@@ -19,14 +19,20 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+  "src/favicon.ico",
+  "src/assets",
+  {
+    "glob": "**/*",
+    "input": "node_modules/@salesforce-ux/design-system/assets",
+    "output": "assets"
+  }
+]
+,
             "styles": [
-              "src/styles.css"
-            ],
+  "node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css",
+  "src/styles.css"
+],
+
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {

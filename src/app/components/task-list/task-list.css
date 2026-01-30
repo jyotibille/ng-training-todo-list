@@ -1,0 +1,343 @@
+/* ==============================
+   TASK CONTAINER (AUTO HEIGHT)
+   ============================== */
+.task-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 1rem auto;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: visible; /* allow dropdowns */
+}
+
+
+/* ==============================
+   HEADER
+   ============================== */
+.task-header {
+  background: #f3f2f2;
+  padding: 0.3rem !important;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.text-block {
+  margin: 0;
+  padding: 0;
+}
+
+.task-title,
+.task-subtitle {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+
+/* ==============================
+   HEADER RIGHT (BUTTONS + SEARCH)
+   ============================== */
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+/* ==============================
+   BUTTONS
+   ============================== */
+.yellow-btn {
+  background: #f9e092;
+  border: 1px solid #e5c36a;
+  color: #91a98a;
+  font-weight: 600;
+  width: 130px;
+  height: 35px;
+  padding: 0.35rem 0.9rem;
+  margin: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.yellow-btn + .yellow-btn {
+  border-radius: 0 4px 4px 0;
+  margin-left: 0;
+}
+
+
+/* ==============================
+   SEARCH BOX
+   ============================== */
+.search-box {
+  width: 260px;
+}
+
+.search-box .slds-input {
+  height: 35px;
+  padding: 0 0.9rem;
+  box-sizing: border-box;
+}
+
+
+/* ==============================
+   ICON
+   ============================== */
+.task-icon {
+  width: 36px;
+  height: 36px;
+  background: #8e2b2b;
+  color: #ffffff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ==============================
+   TABLE WRAPPER (AUTO HEIGHT)
+   ============================== */
+.table-wrapper {
+  padding: 0;
+  max-height: 260px;        /* remove if you want full auto height */
+  overflow-y: auto;        /* scroll table only */
+  overflow-x: auto;
+  
+}
+
+
+/* ==============================
+   TABLE
+   ============================== */
+.slds-table {
+  margin: 0;
+}
+
+.slds-table th {
+
+  font-weight: 600;
+  background: #ffffff;
+}
+
+.link-text {
+  color: #0176d3;
+  cursor: pointer;
+}
+
+
+/* ==============================
+   TEXT TRUNCATE
+   ============================== */
+.truncate {
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* ==============================
+   ACTION MENU (EDIT / DELETE)
+   ============================== */
+.action-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.action-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.action-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #ffe8a3;
+  border: 1px solid #e5c36a;
+  border-radius: 4px;
+  min-width: 80px;
+  z-index: 9999;
+}
+
+.action-dropdown div {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.action-dropdown div:hover {
+  background: #f9e092;
+}
+
+.action-menu:hover .action-dropdown {
+  display: block;
+}
+
+
+/* ==============================
+   FOOTER BAR
+   ============================== */
+.footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #dddbda;
+  background: #f3f2f2;
+}
+
+
+/* ==============================
+   PAGINATION BOX (ONE CONTAINER)
+   ============================== */
+.pagination-box {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #dddbda;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+
+/* ==============================
+   PAGINATION ITEMS
+   ============================== */
+.pagination-box button,
+.pagination-box .page-number {
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: #080707;
+  cursor: pointer;
+}
+
+
+/* Divider between items */
+.pagination-box button:not(:last-child),
+.pagination-box .page-number {
+  border-right: 1px solid #dddbda;
+}
+
+
+/* Page number */
+.page-number {
+  min-width: 32px;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+/* Hover */
+.pagination-box button:hover {
+  background: #f3f2f2;
+}
+
+
+/* Disabled state (optional) */
+.pagination-box button:disabled {
+  color: #c9c7c5;
+  cursor: not-allowed;
+  background: #fafaf9;
+}
+
+/* Wrapper */
+.page-size-wrapper {
+  width: 56px;
+}
+
+/* Number input */
+.page-size-spinner {
+  width: 100%;
+  height: 32px;
+  padding: 0 4px;
+  font-size: 13px;
+  text-align: center;
+
+  border: 1px solid #dddbda;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Chrome / Edge / Safari arrows */
+.page-size-spinner::-webkit-inner-spin-button,
+.page-size-spinner::-webkit-outer-spin-button {
+  opacity: 1;
+  height: 28px;
+}
+
+.search-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Record count */
+.record-count {
+  font-size: 13px;
+  color: #3e3e3c;
+  white-space: nowrap;
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #fff;
+  width: 420px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background: #c93b3b;
+  color: #fff;
+  padding: 12px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.modal-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.btn-no {
+  background: #8fae9a;
+  border: none;
+  padding: 6px 24px;
+  border-radius: 4px;
+}
+
+.btn-yes {
+  background: #ffe29a;
+  border: none;
+  padding: 6px 24px;
+  border-radius: 4px;
+}
+
+
+

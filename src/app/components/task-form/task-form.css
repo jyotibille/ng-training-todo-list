@@ -1,0 +1,101 @@
+.task-page {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.task-card {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 4px;
+  border: 2px solid #c9c7c5; /* bold light grey */
+  background: #ffffff;
+}
+.btn-cancel,
+.btn-save {
+  min-width: 110px;     /* same width */
+  height: 36px;         /* same height */
+  padding: 0 1.25rem;   /* horizontal padding only */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+
+/* Header */
+.task-header {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1rem;
+  border-bottom: 1px solid #d8dde6;
+  background: #ffffff;
+}
+
+/* Required */
+.required {
+  color: red;
+}
+/* Make input labels bigger & bold */
+.slds-form-element__label {
+  font-size: 0.95rem;   /* slightly bigger */
+  font-weight: 600;     /* bold */
+  color: #2e2e2e;       /* optional: darker for clarity */
+}
+.slds-form-element__label {
+  display: inline-block;
+  margin: 0.25rem 0.5rem 0.5rem 0; /* top right bottom left */
+}
+
+
+
+/* Footer */
+.task-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-top: 1px solid #d8dde6;
+  background: #f3f2f2;
+}
+/* Input fields */
+.slds-input,
+.slds-select,
+.slds-textarea {
+  border: 1px solid #dddbda;   /* light grey */
+  border-radius: 4px;
+}
+
+
+
+/* Buttons */
+.btn-cancel {
+  background: #f9e092;
+  border: 1px solid #e5c36a;
+  padding: 0.4rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color:#91a98a;
+}
+
+.btn-save {
+  background: #91a98a;
+  color: #f9e092;
+  border: 1px solid #a0aa9d;
+  padding: 0.4rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background: #919b8f;
+}
+
+/* Fix SLDS select height */
+.slds-select {
+  height: auto !important;
+  min-height: 2.5rem;
+}
+
+
